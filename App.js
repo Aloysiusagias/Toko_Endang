@@ -7,6 +7,7 @@ import splash_screen from './pages/splash_screen';
 import login from './pages/login';
 import OnBoarding from './pages/OnBoarding';
 import register from './pages/register';
+import mainMenu from './pages/mainMenu';
 
 const App = () => {
   const stack = createStackNavigator();
@@ -25,13 +26,20 @@ const App = () => {
             options={{headerShown: false}}
           />
           <stack.Screen
-          name="onboarding"
-          component={OnBoarding}
-          options={{headerShown:false}}/>
+            name="onboarding"
+            component={OnBoarding}
+            options={{headerShown: false}}
+          />
           <stack.Screen
-          name="register"
-          component={register}
-          options={{headerShown:false}}/>
+            name="register"
+            component={register}
+            options={{headerShown: false}}
+          />
+          <stack.Screen
+            name="mainMenu"
+            component={mainMenu}
+            options={{headerShown: false}}
+          />
         </stack.Navigator>
       </NavigationContainer>
     </>
