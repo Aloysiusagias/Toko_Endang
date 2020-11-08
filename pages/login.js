@@ -1,14 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Image,
   StyleSheet,
   Text,
-  View,
+
   TextInput,
-  Button,
-  TouchableOpacity,
+
+  TouchableOpacity, View
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
 const login = () => {
   const navigation = useNavigation();

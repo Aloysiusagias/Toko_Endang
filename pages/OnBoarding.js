@@ -1,7 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, View, Image, Text, Button} from 'react-native';
+import { Button, Image } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
-import {useNavigation} from '@react-navigation/native';
 
 const Skip = ({...props}) => {
   return <Button title="Skip" color="#000" {...props} />;

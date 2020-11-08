@@ -1,15 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Image,
   StyleSheet,
   Text,
-  View,
+
   TextInput,
-  Button,
-  TouchableOpacity,
-  ScrollView,
+
+  TouchableOpacity, View
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
 const register = () => {
   const navigation = useNavigation();

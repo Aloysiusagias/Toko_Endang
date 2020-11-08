@@ -8,6 +8,7 @@ import login from './pages/login';
 import OnBoarding from './pages/OnBoarding';
 import register from './pages/register';
 import mainMenu from './pages/mainMenu';
+import order from './pages/order';
 
 const App = () => {
   const stack = createStackNavigator();
@@ -40,6 +41,10 @@ const App = () => {
             component={mainMenu}
             options={{headerShown: false}}
           />
+          <stack.Screen
+          name="order"
+          component={order}
+          options={{headerShown: false}}/>
         </stack.Navigator>
       </NavigationContainer>
     </>
