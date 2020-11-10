@@ -9,12 +9,14 @@ import {
 
   TouchableOpacity, View
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const register = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
         <View style={styles.container2} />
+        
         <View style={styles.container3}>
           <Text style={styles.teks}>Pendaftaran</Text>
           <View style={styles.container4}>

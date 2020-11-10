@@ -9,6 +9,7 @@ import OnBoarding from './pages/OnBoarding';
 import register from './pages/register';
 import mainMenu from './pages/mainMenu';
 import order from './pages/order';
+import bucket from './pages/bucket';
 
 const App = () => {
   const stack = createStackNavigator();
@@ -44,6 +45,10 @@ const App = () => {
           <stack.Screen
           name="order"
           component={order}
+          options={{headerShown: false}}/>
+          <stack.Screen
+          name="bucket"
+          component={bucket}
           options={{headerShown: false}}/>
         </stack.Navigator>
       </NavigationContainer>
