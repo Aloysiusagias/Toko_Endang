@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Image, Text, TouchableOpacity, Linking} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+  Linking,
+} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 
 const DATA = [
@@ -30,6 +37,7 @@ const bucket = () => {
   const render = ({item}) => {
     return (
       <View
+        key={item}
         style={{
           backgroundColor: '#FF78AE',
           margin: '2%',
@@ -81,9 +89,7 @@ const bucket = () => {
     );
   };
 
-  const order = () => {
-      
-  }
+  const order = () => {};
 
   return (
     <View style={{flex: 1}}>
@@ -96,7 +102,7 @@ const bucket = () => {
         </View>
         <Text style={styles.teks}>Ambil</Text>
       </View>
-      <FlatList data={DATA} renderItem={render} />
+      <FlatList data={DATA} renderItem={render} key={(item) => item.nama} />
       <View
         style={{
           width: '100%',
@@ -113,7 +119,9 @@ const bucket = () => {
             padding: 10,
           }}>
           <Text style={{color: '#FFF8CD', fontSize: 24}}>Total</Text>
-          <Text style={{color: '#FFF8CD', fontSize: 20, marginLeft: 10}}>Rp. 33.500</Text>
+          <Text style={{color: '#FFF8CD', fontSize: 20, marginLeft: 10}}>
+            Rp. 33.500
+          </Text>
         </View>
         <TouchableOpacity
           style={{
@@ -121,7 +129,12 @@ const bucket = () => {
             backgroundColor: '#FFA0D2',
             justifyContent: 'center',
             alignItems: 'center',
-          }} onPress={() => Linking.openURL("https://wa.me/6281227990550?text=I'm%20interested%20in%20your%20car%20for\nsale")}>
+          }}
+          onPress={() =>
+            Linking.openURL(
+              "https://wa.me/6281227990550?text=I'm%20interested%20in%20your%20car%20for\nsale",
+            )
+          }>
           <Text style={{fontSize: 20, color: 'white'}}>BELI</Text>
         </TouchableOpacity>
       </View>

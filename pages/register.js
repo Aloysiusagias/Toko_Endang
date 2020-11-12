@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   StyleSheet,
@@ -13,6 +13,22 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const register = () => {
   const navigation = useNavigation();
+  const [nama, setNama] = useState('');
+  const [telp, setTelp] = useState('');
+  const [pass, setPass] = useState('');
+
+  const goToMainMenu = () =>{ 
+    if(nama == ''){
+      alert('Nama tidak boleh kosong');
+    } else if(telp == ''){
+      alert('Nomor telp tidak boleh kosong');
+    } else if(pass == ''){
+      alert('nomor telp tidak boleh kosong');
+    } else {
+      navigation.replace('mainMenu', {paramKey: 'berhasil'});
+    }
+  }
+
   return (
     <View style={styles.container}>
         <View style={styles.container2} />
@@ -27,6 +43,7 @@ const register = () => {
                   placeholder="Nama"
                   underlineColorAndroid="black"
                   style={styles.inputtext}
+                  onChangeText={(value) => setNama(value)}
                 />
               </View>
               <View style={[styles.input, {marginVertical: 20}]}>
@@ -35,6 +52,8 @@ const register = () => {
                   placeholder="Nomor Telepon"
                   underlineColorAndroid="black"
                   style={styles.inputtext}
+                  onChangeText={(value) => setTelp(value)}
+                  keyboardType={"phone-pad"}
                 />
               </View>
               <View style={styles.input}>
@@ -43,9 +62,11 @@ const register = () => {
                   placeholder="Password"
                   underlineColorAndroid="black"
                   style={styles.inputtext}
+                  onChangeText={(value) => setPass(value)}
+                  secureTextEntry={true}
                 />
               </View>
-              <TouchableOpacity style={{marginVertical: '5%'}} onPress={() => navigation.navigate('mainMenu')}>
+              <TouchableOpacity style={{marginVertical: '5%'}} onPress={goToMainMenu}>
                 <View style={styles.button}>
                   <Text style={styles.buttonText}>DAFTAR</Text>
                 </View>

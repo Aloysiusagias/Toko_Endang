@@ -2,8 +2,9 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 
-const mainMenu = () => {
+const mainMenu = ({route}) => {
   const navigation = useNavigation();
+  console.log(route.params.paramKey);
   return (
     <View style={styles.container}>
       <View style={styles.container2} />

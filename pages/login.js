@@ -1,17 +1,29 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
 import {
   Image,
   StyleSheet,
   Text,
-
   TextInput,
-
-  TouchableOpacity, View
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 const login = () => {
   const navigation = useNavigation();
+  const [name, setName] = useState('');
+  const [pass, setPass] = useState('');
+
+  const loginn = () => {
+    // console.log(name)
+    if(name != "agias"){
+      alert('Username tidak ditemukan')
+    } else if(pass != "123456") {
+      alert('Password salah');
+    } else {
+      navigation.replace('mainMenu', {paramKey: 'berhasil'});
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.container2} />
@@ -31,6 +43,7 @@ const login = () => {
                 placeholder="Nama"
                 underlineColorAndroid="black"
                 style={styles.inputtext}
+                onChangeText={(hasil) => setName(hasil)}
               />
             </View>
             <View style={[styles.input, {marginTop: '5%'}]}>
@@ -39,9 +52,13 @@ const login = () => {
                 placeholder="Password"
                 underlineColorAndroid="black"
                 style={styles.inputtext}
+                onChangeText={(hasil) => setPass(hasil)}
+                secureTextEntry={true}
               />
             </View>
-            <TouchableOpacity style={{marginVertical: '5%'}} onPress={() => navigation.navigate('mainMenu')}>
+            <TouchableOpacity
+              style={{marginVertical: '5%'}}
+              onPress={loginn}>
               <View style={styles.button}>
                 <Text style={styles.buttonText}>MASUK</Text>
               </View>

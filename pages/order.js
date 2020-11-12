@@ -34,13 +34,14 @@ const DATA = [
   },
 ];
 
+const DATA2 = [];
+
 const order = () => {
   const [visible, useVisible] = useState(false);
   const navigation = useNavigation();
-
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity style={styles.items} onPress={() => useVisible(true)}>
+      <TouchableOpacity style={styles.items} onPress={clickmodal} key={item}>
         <View style={{backgroundColor: '#C4C4C4', width: '70%', height: 100}} />
         <Text style={{fontSize: 24, color: '#FFF8CD'}}>{item.nama}</Text>
         <View style={{flexDirection: 'row'}}>
@@ -51,6 +52,15 @@ const order = () => {
       </TouchableOpacity>
     );
   };
+
+  const buckets = () => {
+    useVisible(false)
+  }
+
+  const clickmodal = (item) => {
+    useVisible(true)
+    // console.log(item.nama)
+  }
 
   return (
     <View style={styles.container}>
@@ -78,8 +88,8 @@ const order = () => {
         key={(item) => item.nama}
         onPress={() => console.log('masukk')}
       />
-      <Modal visible={visible} transparent={true}>
-        <View style={styles.modal}>
+      <Modal visible={visible} transparent={true} onRequestClose={() => useVisible(false)}>
+        <TouchableOpacity style={styles.modal} onPress={() => useVisible(false)}>
           <View
             style={{
               backgroundColor: '#FF78AE',
@@ -112,13 +122,13 @@ const order = () => {
               <TouchableOpacity style={styles.btnModal}>
                 <Text
                   style={{alignSelf: 'center'}}
-                  onPress={() => useVisible(false)}>
+                  onPress={buckets}>
                   Tambah
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </Modal>
       <TouchableOpacity
         style={styles.fab}
